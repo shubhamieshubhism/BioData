@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Biodata - Download as PDF</title>
+  <link rel="stylesheet" href="style.css" /> <!-- Linking external CSS -->
+</head>
+<body>
+  <div class="card" id="biodata-card">
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
+
+    <h1 class="title">BIODATA</h1>
+
+    <div class="top-section">
+      <div class="left-col">
+        <div class="field-row"><div class="field-name">Name</div><div class="field-value">: Ajay Kumar</div></div>
+        <div class="field-row"><div class="field-name">Date of Birth</div><div class="field-value">: 27/08/1998</div></div>
+        <div class="field-row"><div class="field-name">Place of Birth</div><div class="field-value">: Mumbai</div></div>
+        <div class="field-row"><div class="field-name">Rashi</div><div class="field-value">: Gemini (Mithun)</div></div>
+        <div class="field-row"><div class="field-name">Religion</div><div class="field-value">: Hindu</div></div>
+        <div class="field-row"><div class="field-name">Caste</div><div class="field-value">: Caste Name</div></div>
+        <div class="field-row"><div class="field-name">Weight</div><div class="field-value">: 78 KG</div></div>
+        <div class="field-row"><div class="field-name">Height</div><div class="field-value">: 5 ft. 7 in.</div></div>
+        <div class="field-row"><div class="field-name">Blood Group</div><div class="field-value">: A+</div></div>
+        <div class="field-row"><div class="field-name">Education</div><div class="field-value">: Bachelor of Business Administration (BBA)</div></div>
+        <div class="field-row"><div class="field-name">Occupation</div><div class="field-value">: Tata Communications Ltd., Delhi</div></div>
+
+        <h2 class="section-title">FAMILY DETAILS</h2>
+
+        <div class="field-row"><div class="field-name">Father Name</div><div class="field-value">: Arjun Kumar</div></div>
+        <div class="field-row"><div class="field-name">Occupation</div><div class="field-value">: Business Clothing Store</div></div>
+        <div class="field-row"><div class="field-name">Mother Name</div><div class="field-value">: Jaya Kumar</div></div>
+        <div class="field-row"><div class="field-name">Occupation</div><div class="field-value">: Housewife</div></div>
+        <div class="field-row"><div class="field-name">Sister</div><div class="field-value">: 1 Unmarried</div></div>
+
+        <h2 class="section-title">CONTACT DETAILS</h2>
+
+        <div class="field-row contact"><div class="field-name">Address</div><div class="field-value">: Flat No. 71, Mukatha Apartment, Bengaluru</div></div>
+        <div class="field-row contact"><div class="field-name">Contact No.</div><div class="field-value">: 9826548970 / 9236548899</div></div>
+      </div>
+
+      <div class="photo" aria-hidden="true">
+        <img src="your-image.jpg" alt="Photo">
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="downloadPdfBtn">Download as PDF</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+  <script>
+    document.getElementById('downloadPdfBtn').addEventListener('click', function () {
+      const element = document.getElementById('biodata-card');
+      const opt = {
+        margin: 10,
+        filename: 'biodata-ajay-kumar.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    });
+  </script>
+</body>
+</html>
